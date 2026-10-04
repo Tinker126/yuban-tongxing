@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#317669"><title>语伴童行 · 英语开口练习</title><link rel="icon" href="/buddy.svg" type="image/svg+xml"><link rel="stylesheet" href="/styles.css"><script src="/student.js" type="module"></script><script src="/student-auth-nav.js" type="module"></script></head>
+<body>
+<header class="site-header"><a class="brand" href="/"><span class="brand-icon">Hi!</span><span>语伴童行<small>YOUR ENGLISH BUDDY</small></span></a><nav class="header-links" aria-label="账号导航"><span id="student-auth-nav" class="student-auth-nav"><a href="/login">学生登录</a><a href="/register">注册</a></span><a class="teacher-link" href="/admin/login">老师入口 <span aria-hidden="true">↗</span></a></nav></header>
+<main class="student-layout">
+  <aside class="practice-side">
+    <div class="eyebrow">每天一点点，勇敢说英语</div><h1>今天，和小伴<br>聊点什么？<span class="sparkle" aria-hidden="true">✦</span></h1>
+    <p class="muted">冀教版 · 三年级起点话题练习</p>
+    <section class="lesson-card" aria-label="选择练习内容">
+      <label>练习方式</label><div class="practice-modes" role="group" aria-label="选择练习方式"><button id="mode-free" class="mode-button active" type="button" aria-pressed="true">自由聊天</button><button id="mode-scenario" class="mode-button" type="button" aria-pressed="false">情景练习</button></div>
+      <label for="grade">我的年级</label><select id="grade"><option value="3">三年级</option><option value="4">四年级</option><option value="5">五年级</option><option value="6">六年级</option></select>
+      <div id="free-topic-fields"><label for="topic">今天的话题</label><select id="topic" disabled><option>正在加载话题…</option></select></div>
+      <section id="scenario-picker" class="scenario-picker" hidden aria-label="情景选择"><h2>今天想练什么？</h2><p class="mini">选一个生活场景，和小伴完成小任务。</p><div id="scenario-grid" class="scenario-grid"></div><div id="scenario-detail" class="scenario-detail" hidden><h3 id="scenario-title"></h3><dl class="scenario-roles"><div><dt>我的身份</dt><dd id="scenario-student-role"></dd></div><div><dt>小伴的身份</dt><dd id="scenario-ai-role"></dd></div></dl><p id="scenario-objective" class="mini"></p><p class="scenario-list-title">可以试试这样说</p><ul id="scenario-expressions" class="scenario-expressions"></ul><p id="scenario-difficulty" class="mini"></p></div></section>
+      <p class="mini">不用说得完美，每一次尝试都很棒。</p>
+    </section>
+    <div id="buddy" class="buddy-scene" data-state="idle" role="img" aria-label="小伴正在等你"><span class="float-star star-one" aria-hidden="true">✧</span><span class="float-star star-two" aria-hidden="true">✦</span><img src="/buddy.svg" alt="" width="260" height="260"><span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="buddy-shadow" aria-hidden="true"></span></div>
+    <div class="buddy-caption"><span class="status-dot"></span><span id="buddy-label">小伴准备好啦</span></div>
+  </aside>
+  <section id="conversation-card" class="conversation-card" aria-label="英语对话">
+    <div class="chat-heading"><div><span class="eyebrow">LET'S TALK</span><h2>我的英语小天地</h2></div><div class="chat-heading-side"><span id="scenario-name" class="round-pill" hidden></span><span id="round-count" class="round-pill">0 / 30 轮</span></div></div>
+    <section id="scenario-progress" class="scenario-progress" hidden aria-live="polite"><div><strong id="scenario-progress-heading">情景任务</strong><span id="scenario-progress-status" class="mini"></span></div><ul id="scenario-progress-items"></ul></section>
+    <div id="chat" class="chat-log" role="log" aria-live="polite" aria-label="对话记录"><div class="welcome"><span class="welcome-star" aria-hidden="true">✦</span><h3>Hi, little friend!</h3><p>选好话题，准备好就开始吧。<br>说一句简单的英语，也是一大步。</p><div class="welcome-chips"><span>慢慢说</span><span>大胆试</span><span>一起进步</span></div></div></div>
+    <div class="chat-controls">
+      <div id="intro"><label class="consent"><input type="checkbox" id="consent"><span>我已在老师或监护人的指导下阅读<a href="/privacy.html" target="_blank" rel="noopener">练习与隐私说明</a>。语音可能临时上传至服务器和腾讯云转成文字，网站不保存录音。练习文本交给AI处理并供授权老师研究使用；请不要说出真实姓名、学校或联系方式。</span></label><button id="start" class="primary full" disabled>开始今天的练习 <span aria-hidden="true">→</span></button></div>
+      <div id="active-controls" hidden><div class="mic-row"><button id="mic" class="mic-button" type="button" aria-label="开始英语语音识别"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" stroke-width="2"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8" stroke="currentColor" stroke-width="2"/></svg><span id="mic-label">点击说英语</span></button><button id="replay" class="secondary" type="button">↻ 再听一遍</button><button id="finish" class="text-button" type="button">结束并保存</button></div><p id="speech-help" class="mini" role="status"></p><div class="speech-tools"><button id="check-speech" class="text-button" type="button">重新检测语音</button><button id="test-mic" class="text-button" type="button">检测麦克风</button><meter id="mic-meter" min="0" max="100" value="0" aria-label="麦克风音量" hidden></meter></div><p id="mic-diagnostic" class="mini" role="status" hidden></p><form id="text-form" class="text-form"><label class="sr-only" for="text-input">输入英语文字</label><input id="text-input" maxlength="600" autocomplete="off" placeholder="也可以在这里输入英语…"><button id="send" class="secondary" type="submit">发送 ↗</button></form></div>
+      <p id="phase" class="mini" role="status" data-state="idle">准备好啦，可以继续说英语 · idle</p><p id="tts-help" class="mini" role="status" hidden></p><p id="status" class="notice" role="status" aria-live="polite">只保存练习文字；语音识别可能临时上传音频，处理后释放。</p>
+      <button id="restart" class="primary full" hidden>再练一个话题 →</button>
+      <section id="scenario-result" class="scenario-result" hidden aria-live="polite"><h3 id="scenario-result-title">任务完成！</h3><p id="scenario-result-summary"></p><div><strong>完成的任务</strong><ul id="scenario-result-tasks"></ul></div><div><strong>本次用到的目标表达</strong><ul id="scenario-result-used"></ul></div><div><strong>还可以试试</strong><ul id="scenario-result-targets"></ul></div><div class="scenario-result-actions"><button id="scenario-again" class="primary" type="button">再练一次</button><button id="scenario-change" class="secondary" type="button">换个情景</button><a class="secondary" href="/history">查看学习记录</a></div></section>
+    </div>
+  </section>
+</main><footer class="site-footer"><span>一小句英语，一大步成长。</span><span>不保存录音 · 登录后可查看练习记录 · <a href="/privacy.html">隐私说明</a></span></footer>
+</body></html>

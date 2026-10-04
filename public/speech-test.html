@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>手机语音能力诊断</title><link rel="stylesheet" href="/styles.css"><script type="module" src="/speech-test.js"></script></head>
+<body><main class="prose">
+<a href="/">返回练习网站</a><h1>手机语音能力诊断</h1>
+<p>请在有问题的手机浏览器中依次运行三项检测，每次按提示说 “Hello, how are you?”。本页检查 HTTPS 与 <code>window.isSecureContext</code>，不连接 DeepSeek，不设置 processLocally，也不读取或记录说话内容。三秒录音只在手机内存中用于计算 Blob 大小，随后立即释放，不上传。</p>
+<label for="browser-label">当前测试的浏览器</label>
+<select id="browser-label"><option value="未选择">请选择</option><option>Chrome</option><option>Edge</option><option>QQ 浏览器</option><option>其他</option></select>
+<h2>浏览器能力与麦克风权限</h2><pre id="capabilities"></pre>
+<button id="test-mic" type="button">1. 获取麦克风并检查音轨</button>
+<button id="test-recorder" type="button">2. 录制 3 秒并检查 Blob</button>
+<button id="start" type="button">3. 开始普通英语识别</button>
+<button id="stop" type="button" disabled>停止语音识别</button>
+<p>第 3 项开始后请马上说英语，等待浏览器自然结束。<code>onend</code> 只表示识别结束，本身不是错误。</p>
+<p id="state" role="status">idle</p><h2>本次语音识别摘要</h2><pre id="recognition-summary">尚未测试</pre>
+<h2>实际事件与错误（按发生顺序）</h2><pre id="events" aria-live="polite"></pre>
+<button id="copy-report" type="button">复制文字诊断报告</button>
+<p>把复制的文字结果发给我即可继续定位。报告不包含录音或说话内容；请不要仅凭 <code>onend</code> 判断识别成功。</p>
+</main></body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#317669">
+  <meta name="robots" content="noindex,nofollow">
+  <title>我的练习记录 · 语伴童行</title>
+  <link rel="icon" href="/buddy.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/history.css">
+  <script src="/student-auth-nav.js" type="module"></script>
+  <script src="/history.js" type="module"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-icon">Hi!</span><span>语伴童行<small>YOUR ENGLISH BUDDY</small></span></a>
+    <nav class="header-links" aria-label="账号导航"><span id="student-auth-nav" class="student-auth-nav"><a href="/login">学生登录</a></span><a class="teacher-link" href="/">返回练习 <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main class="history-main">
+    <section id="history-list-view" aria-labelledby="history-title">
+      <div class="history-heading"><div><p class="eyebrow">MY LEARNING</p><h1 id="history-title">我的练习记录</h1><p class="muted">每一次开口，都是一点点进步。</p></div><a class="secondary history-home-link" href="/">开始练习</a></div>
+      <div class="history-filters" aria-label="筛选练习记录">
+        <label>年级<select id="history-grade"><option value="">全部年级</option><option value="3">三年级</option><option value="4">四年级</option><option value="5">五年级</option><option value="6">六年级</option></select></label>
+        <label>话题<select id="history-topic"><option value="">全部话题</option></select></label>
+        <label>状态<select id="history-status-filter"><option value="">全部状态</option><option value="completed">已完成</option><option value="active">进行中</option><option value="abandoned">未完成</option></select></label>
+      </div>
+      <p id="history-status" class="mini" role="status" aria-live="polite">正在读取记录…</p>
+      <div id="history-items" class="history-items" aria-live="polite"></div>
+      <div id="history-empty" class="history-empty" hidden><span aria-hidden="true">✦</span><h2>还没有练习记录</h2><p>准备好时，回到练习页面和小伴说几句英语吧。</p><a class="primary" href="/">开始今天的练习</a></div>
+      <nav id="history-pagination" class="history-pagination" aria-label="练习记录分页" hidden>
+        <button id="history-prev" class="secondary" type="button">上一页</button><span id="history-page-label" class="mini"></span><button id="history-next" class="secondary" type="button">下一页</button>
+      </nav>
+    </section>
+    <section id="history-detail-view" aria-labelledby="detail-title" hidden>
+      <a class="history-back" href="/history">← 返回我的练习记录</a>
+      <p class="eyebrow">PRACTICE DETAIL</p><h1 id="detail-title">这次练习</h1>
+      <p id="detail-status" class="mini" role="status" aria-live="polite">正在读取练习详情…</p>
+      <div id="detail-content" hidden>
+        <dl id="detail-summary" class="history-summary"></dl>
+        <h2 class="history-turn-heading">本次对话</h2>
+        <div id="history-turns" class="history-turns"></div>
+        <div id="detail-empty" class="history-empty compact" hidden><p>本次练习没有已保存的对话轮次。</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>一小句英语，一大步成长。</span><span>只保存对话文本，不保存录音 · <a href="/privacy.html">隐私说明</a></span></footer>
+</body>
+</html>

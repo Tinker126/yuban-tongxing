@@ -1,0 +1,23 @@
+.admin-stats{grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.admin-stats .stat-card{padding:18px}
+.admin-stats .stat-card strong{font-size:30px;overflow-wrap:anywhere}
+.admin-section{margin:34px 0}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}
+.section-heading h2{font-size:23px}
+.section-heading .eyebrow{margin:0 0 5px}
+.admin-section .table-wrap{max-height:560px}
+.admin-section td{min-width:110px}
+.admin-section td:first-child{min-width:120px}
+.admin-section .table-wrap button{min-height:38px;padding:8px 12px}
+.student-summary{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 18px}
+.student-summary span{background:white;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px}
+.detail-panel{padding:20px;background:#f4f7f0;border:1px solid var(--line);border-radius:18px}
+.turn-list{display:grid;gap:12px}
+.turn-card{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}
+.turn-card h3{font-size:16px;margin:0 0 10px}
+.turn-card p{line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.turn-card .turn-label{font-size:12px;color:var(--muted);margin-bottom:4px}
+.turn-feedback{padding:10px 12px;border-left:3px solid var(--yellow);background:#fffaf0;border-radius:0 8px 8px 0}
+.admin-empty{text-align:center;color:var(--muted);padding:26px}
+@media(max-width:900px){.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-stats .stat-card:last-child{grid-column:auto}}
+@media(max-width:520px){.admin-stats{gap:8px}.admin-stats .stat-card{padding:12px}.admin-stats .stat-card h2{font-size:13px}.admin-stats .stat-card strong{font-size:24px}.detail-panel{padding:14px}.section-heading h2{font-size:20px}}

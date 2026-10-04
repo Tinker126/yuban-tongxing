@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#317669">
+  <title>学生注册 · 语伴童行</title>
+  <link rel="icon" href="/buddy.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/student-auth-page.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-icon">Hi!</span><span>语伴童行<small>YOUR ENGLISH BUDDY</small></span></a>
+    <a class="teacher-link" href="/">返回练习</a>
+  </header>
+  <main class="login-wrap">
+    <span class="eyebrow">JOIN US</span>
+    <h1>创建学生账号</h1>
+    <p class="muted">注册后即可登录，开始英语口语练习。</p>
+    <form data-auth-form="register">
+      <label class="form-field" for="username">学生账号（3–32位字母、数字或下划线）
+        <input id="username" name="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]{3,32}" autocomplete="username">
+      </label>
+      <label class="form-field" for="name">称呼（请使用昵称）
+        <input id="name" name="name" required maxlength="80" autocomplete="nickname">
+      </label>
+      <label class="form-field" for="grade">年级
+        <select id="grade" name="grade" required>
+          <option value="">请选择年级</option>
+          <option value="3">三年级</option>
+          <option value="4">四年级</option>
+          <option value="5">五年级</option>
+          <option value="6">六年级</option>
+        </select>
+      </label>
+      <label class="form-field" for="password">密码
+        <input id="password" name="password" type="password" required minlength="8" maxlength="128" autocomplete="new-password">
+      </label>
+      <button class="primary full" type="submit">注册学生账号 →</button>
+    </form>
+    <p id="status" class="notice" role="status" aria-live="polite"></p>
+    <p class="mini">已有账号？<a href="/login">去登录</a></p>
+  </main>
+</body>
+</html>

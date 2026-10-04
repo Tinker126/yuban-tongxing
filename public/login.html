@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>老师登录 · 语伴童行</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/login.js?v=admin-login-20260930-1"></script>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="/"><span class="brand-icon">Hi!</span><span>语伴童行<small>YOUR ENGLISH BUDDY</small></span></a><a href="/">返回练习</a></header>
+  <main class="login-wrap">
+    <span class="eyebrow">TEACHER'S ROOM</span>
+    <h1>欢迎回来，老师</h1>
+    <p class="muted">登录后查看练习记录与研究数据。</p>
+    <form id="login-form" novalidate>
+      <label class="form-field">管理员账号<input type="text" name="username" id="admin-username" autocomplete="username" required maxlength="80"></label>
+      <label class="form-field">管理员密码<input type="password" name="password" id="admin-password" autocomplete="current-password" required maxlength="200"></label>
+      <button id="login" class="primary full" type="submit">登录数据后台 →</button>
+    </form>
+    <p id="status" class="notice" role="status"></p>
+    <p class="mini">请勿在共用设备上保存密码，使用后请退出登录。</p>
+  </main>
+</body>
+</html>

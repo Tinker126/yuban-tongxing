@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>管理员学习数据 · 语伴童行</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/admin.css">
+  <script type="module" src="/admin.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/"><span class="brand-icon">Hi!</span><span>语伴童行<small>STUDENT LEARNING DATA</small></span></a>
+    <span id="admin-name" class="muted">管理员后台</span>
+  </header>
+  <main class="admin-main">
+    <div class="admin-top">
+      <div><p class="eyebrow">TEACHER'S ROOM</p><h1>学生学习数据</h1><p class="muted">仅展示 PostgreSQL 中真实保存的学生练习记录，不保存录音。</p></div>
+      <div class="admin-actions"><button id="refresh" class="secondary">刷新数据</button><button id="logout" class="text-button">退出登录</button></div>
+    </div>
+    <p id="status" class="notice" role="status" aria-live="polite"></p>
+    <section class="stats admin-stats" aria-label="学习统计">
+      <article class="stat-card"><h2>学生总数</h2><strong id="student-count">—</strong></article>
+      <article class="stat-card"><h2>今日练习人数</h2><strong id="today-students">—</strong></article>
+      <article class="stat-card"><h2>今日练习次数</h2><strong id="today-sessions">—</strong></article>
+      <article class="stat-card"><h2>累计练习次数</h2><strong id="total-sessions">—</strong></article>
+      <article class="stat-card"><h2>累计练习时长</h2><strong id="total-duration">—</strong><span class="mini">已结束练习</span></article>
+    </section>
+
+    <section class="admin-section">
+      <div class="section-heading"><div><p class="eyebrow">LATEST PRACTICE</p><h2>最近练习</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>学生</th><th>时间</th><th>话题 / 年级</th><th>时长</th><th>轮数</th><th>状态</th><th>详情</th></tr></thead><tbody id="recent-sessions"></tbody></table></div>
+    </section>
+
+    <section class="admin-section">
+      <div class="section-heading"><div><p class="eyebrow">STUDENT ACCOUNTS</p><h2>学生列表</h2></div></div>
+      <div class="table-wrap"><table><thead><tr><th>姓名</th><th>账号</th><th>年级</th><th>练习次数</th><th>累计时长</th><th>最近练习</th><th>查看</th></tr></thead><tbody id="students"></tbody></table></div>
+      <div class="pagination"><button id="students-prev" class="secondary">上一页</button><span id="students-page">—</span><button id="students-next" class="secondary">下一页</button></div>
+    </section>
+
+    <section id="student-detail" class="admin-section detail-panel" hidden>
+      <div class="section-heading"><div><p class="eyebrow">STUDENT PROFILE</p><h2 id="detail-title">学生详情</h2></div><button id="close-student" class="text-button">收起</button></div>
+      <div id="student-summary" class="student-summary"></div>
+      <div class="table-wrap"><table><thead><tr><th>练习时间</th><th>话题 / 年级</th><th>练习时长</th><th>轮数</th><th>状态</th><th>对话</th></tr></thead><tbody id="student-sessions"></tbody></table></div>
+      <div class="pagination"><button id="history-prev" class="secondary">上一页</button><span id="history-page">—</span><button id="history-next" class="secondary">下一页</button></div>
+    </section>
+
+    <section id="practice-detail" class="admin-section detail-panel" hidden>
+      <div class="section-heading"><div><p class="eyebrow">FULL CONVERSATION</p><h2>练习详情</h2></div><button id="close-practice" class="text-button">收起</button></div>
+      <div id="practice-summary" class="student-summary"></div>
+      <div id="turns" class="turn-list"></div>
+    </section>
+  </main>
+</body>
+</html>

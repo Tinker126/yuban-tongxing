@@ -1,0 +1,37 @@
+{
+  "name": "yuban-tongxing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "语伴童行：小学英语口语练习与匿名研究数据管理",
+  "type": "module",
+  "engines": {
+    "node": ">=22.16.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "setup": "node scripts/setup.mjs",
+    "admin:setup": "node scripts/setup-admin-interactive.mjs",
+    "admin:password": "node scripts/set-admin-password.mjs",
+    "admin:provision": "node scripts/provision-admin.mjs",
+    "db:check": "node scripts/db-check.mjs",
+    "db:migrate": "node scripts/db-migrate.mjs",
+    "stt:configure": "node scripts/configure-stt.mjs",
+    "stt:check": "node scripts/stt-check.mjs",
+    "test:auth": "node scripts/test-student-auth.mjs",
+    "test:practice": "node scripts/test-practice-access.mjs",
+    "test:admin": "node scripts/test-admin-dashboard.mjs",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "dotenv": "17.4.2",
+    "express": "5.2.1",
+    "express-rate-limit": "8.7.0",
+    "helmet": "8.3.0",
+    "pg": "8.23.0",
+    "proper-lockfile": "4.1.2"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.63.0"
+  }
+}
